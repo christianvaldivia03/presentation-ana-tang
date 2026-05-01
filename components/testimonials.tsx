@@ -1,9 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Star } from "lucide-react";
+import {
+  sectionTitleVariants,
+  sectionTitleItemVariants,
+  cardVariants,
+  SPRING_SOFT,
+} from "@/lib/animation-variants";
 
 const Testimonials = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const testimonials = [
     {
       text: "Mi hijo mejoró notablemente su conducta y autoestima. La atención de la Lic. Ana fue muy profesional y cálida.",
@@ -25,72 +33,61 @@ const Testimonials = () => {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8 },
-    },
-  };
-
   return (
     <section
       id="testimonials"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-primary/5 to-transparent"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-primary/5 to-transparent"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* Section Title */}
         <motion.div
-          variants={containerVariants}
-          initial={false}
+          variants={sectionTitleVariants}
+          initial={shouldReduceMotion ? false : "hidden"}
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="space-y-12"
+          viewport={{ once: true, amount: 0.4 }}
+          className="text-center space-y-4"
         >
-          {/* Section Title */}
-          <div className="text-center space-y-4">
-            <motion.h2
-              variants={itemVariants}
-              className="text-4xl sm:text-5xl font-serif font-bold text-foreground"
-            >
-              Testimonios
-            </motion.h2>
-            <motion.div
-              variants={itemVariants}
-              className="w-20 h-1 bg-primary mx-auto rounded-full"
-            ></motion.div>
-            <motion.p
-              variants={itemVariants}
-              className="text-muted-foreground text-lg max-w-2xl mx-auto"
-            >
-              Lo que dicen mis pacientes y familias sobre el acompañamiento
-              terapéutico
-            </motion.p>
-          </div>
-
-          {/* Testimonials Grid */}
-          <motion.div
-            variants={containerVariants}
-            className="grid md:grid-cols-3 gap-8"
+          <motion.h2
+            variants={sectionTitleItemVariants}
+            className="text-4xl sm:text-5xl font-serif font-bold text-foreground"
           >
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ y: -10 }}
-                className="bg-white rounded-2xl p-8 border border-primary/10 shadow-sm hover:shadow-lg transition-shadow"
-              >
+            Testimonios
+          </motion.h2>
+          <motion.div
+            variants={sectionTitleItemVariants}
+            className="w-20 h-1 bg-primary mx-auto rounded-full"
+          />
+          <motion.p
+            variants={sectionTitleItemVariants}
+            className="text-muted-foreground text-lg max-w-2xl mx-auto"
+          >
+            Lo que dicen mis pacientes y familias sobre el acompañamiento
+            terapéutico
+          </motion.p>
+        </motion.div>
+
+        {/* Testimonials Grid */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={index}
+              custom={index}
+              variants={cardVariants}
+              initial={shouldReduceMotion ? false : "hidden"}
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
+              whileHover={
+                shouldReduceMotion
+                  ? undefined
+                  : {
+                      y: -8,
+                      boxShadow: "0 12px 32px rgba(0,0,0,0.10)",
+                      transition: SPRING_SOFT,
+                    }
+              }
+              className="bg-white rounded-2xl p-8 border border-primary/10 shadow-sm cursor-default"
+            >
+              <div>
                 {/* Stars */}
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -104,7 +101,7 @@ const Testimonials = () => {
 
                 {/* Quote */}
                 <p className="text-muted-foreground italic leading-relaxed mb-6">
-                  "{testimonial.text}"
+                  &ldquo;{testimonial.text}&rdquo;
                 </p>
 
                 {/* Author */}
@@ -114,10 +111,10 @@ const Testimonials = () => {
                   </p>
                   <p className="text-sm text-primary">{testimonial.role}</p>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
