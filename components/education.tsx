@@ -1,15 +1,15 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Award, BookOpen } from 'lucide-react'
+import { motion } from "framer-motion";
+import { Award, BookOpen } from "lucide-react";
 
 const Education = () => {
   const certifications = [
-    'Evaluación psicológica en niños con TDAH',
-    'Estrategias lúdicas en terapia de lenguaje',
-    'Atención integral en primera infancia',
-    'Técnicas de modificación de conducta en niños, adolescentes y adultos',
-  ]
+    "Evaluación psicológica en niños con TDAH",
+    "Estrategias lúdicas en terapia de lenguaje",
+    "Atención integral en primera infancia",
+    "Técnicas de modificación de conducta en niños, adolescentes y adultos",
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -20,7 +20,7 @@ const Education = () => {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -29,7 +29,7 @@ const Education = () => {
       y: 0,
       transition: { duration: 0.8 },
     },
-  }
+  };
 
   return (
     <section
@@ -64,7 +64,9 @@ const Education = () => {
                     Universidad Privada del Norte
                   </h3>
                   <p className="text-primary font-semibold mt-1">Psicología</p>
-                  <p className="text-muted-foreground text-sm mt-2">2017 - 2023</p>
+                  <p className="text-muted-foreground text-sm mt-2">
+                    2017 - 2023
+                  </p>
                 </div>
               </div>
               <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-full">
@@ -95,7 +97,10 @@ const Education = () => {
                   whileHover={{ y: -5 }}
                   className="bg-white rounded-xl p-6 border border-primary/10 shadow-sm hover:shadow-md transition-shadow flex gap-4"
                 >
-                  <Award size={24} className="text-primary flex-shrink-0 mt-0.5" />
+                  <Award
+                    size={24}
+                    className="text-primary flex-shrink-0 mt-0.5"
+                  />
                   <p className="text-foreground font-medium leading-relaxed">
                     {cert}
                   </p>
@@ -106,7 +111,7 @@ const Education = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Education
+export default Education;

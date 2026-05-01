@@ -1,39 +1,39 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown } from 'lucide-react'
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqs = [
     {
-      question: '¿Atiendes niños y adolescentes?',
+      question: "¿Atiendes niños y adolescentes?",
       answer:
-        'Sí, especializada en atención psicológica para niños de 3 a 12 años y adolescentes. Utilizó enfoques lúdicos y adaptados a cada edad para crear un ambiente seguro y confiable.',
+        "Sí, especializada en atención psicológica para niños de 3 a 12 años y adolescentes. Utilizó enfoques lúdicos y adaptados a cada edad para crear un ambiente seguro y confiable.",
     },
     {
-      question: '¿Cómo se agenda una cita?',
+      question: "¿Cómo se agenda una cita?",
       answer:
-        'Puedes contactarme vía WhatsApp al 962 327 662 o llamar directamente. También puedes usar el formulario de contacto en la página. Respondo en menos de 24 horas.',
+        "Puedes contactarme vía WhatsApp al 962 327 662 o llamar directamente. También puedes usar el formulario de contacto en la página. Respondo en menos de 24 horas.",
     },
     {
-      question: '¿La atención puede ser virtual?',
+      question: "¿La atención puede ser virtual?",
       answer:
-        'Sí, ofrezco sesiones presenciales en Lima y sesiones virtuales por videoconferencia, según tu comodidad y disponibilidad.',
+        "Sí, ofrezco sesiones presenciales en Lima y sesiones virtuales por videoconferencia, según tu comodidad y disponibilidad.",
     },
     {
-      question: '¿También orientas a padres?',
+      question: "¿También orientas a padres?",
       answer:
-        'Por supuesto. Ofrezco escuela para padres, talleres de crianza positiva y orientación familiar para complementar el proceso terapéutico de los niños y adolescentes.',
+        "Por supuesto. Ofrezco escuela para padres, talleres de crianza positiva y orientación familiar para complementar el proceso terapéutico de los niños y adolescentes.",
     },
     {
-      question: '¿Realizas evaluaciones psicológicas?',
+      question: "¿Realizas evaluaciones psicológicas?",
       answer:
-        'Sí, realizó evaluaciones psicológicas completas con aplicación de pruebas estandarizadas, informes detallados y seguimiento profesional personalizado.',
+        "Sí, realizó evaluaciones psicológicas completas con aplicación de pruebas estandarizadas, informes detallados y seguimiento profesional personalizado.",
     },
-  ]
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -44,7 +44,7 @@ const FAQ = () => {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -53,13 +53,10 @@ const FAQ = () => {
       y: 0,
       transition: { duration: 0.8 },
     },
-  }
+  };
 
   return (
-    <section
-      id="faq"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-white"
-    >
+    <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-3xl mx-auto">
         <motion.div
           variants={containerVariants}
@@ -83,10 +80,7 @@ const FAQ = () => {
           </div>
 
           {/* FAQ Items */}
-          <motion.div
-            variants={containerVariants}
-            className="space-y-4"
-          >
+          <motion.div variants={containerVariants} className="space-y-4">
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
@@ -105,7 +99,7 @@ const FAQ = () => {
                   <ChevronDown
                     size={20}
                     className={`text-primary flex-shrink-0 transition-transform duration-300 ${
-                      openIndex === index ? 'rotate-180' : ''
+                      openIndex === index ? "rotate-180" : ""
                     }`}
                   />
                 </button>
@@ -114,7 +108,7 @@ const FAQ = () => {
                   {openIndex === index && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
+                      animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
                       className="px-6 py-4 border-t border-primary/10 bg-white"
@@ -131,7 +125,7 @@ const FAQ = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default FAQ
+export default FAQ;

@@ -1,7 +1,14 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram } from 'lucide-react'
+import { motion } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
 
 const Footer = () => {
   const containerVariants = {
@@ -13,7 +20,7 @@ const Footer = () => {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -22,7 +29,7 @@ const Footer = () => {
       y: 0,
       transition: { duration: 0.8 },
     },
-  }
+  };
 
   return (
     <footer className="bg-foreground text-white py-16 px-4 sm:px-6 lg:px-8">
@@ -39,11 +46,12 @@ const Footer = () => {
               Lic. Ana Alessandra Tang Bernilla
             </h3>
             <p className="text-white/70 text-sm leading-relaxed">
-              Psicóloga Licenciada especializada en atención infantil, adolescentes y familias con enfoque empático y basado en evidencia.
+              Psicóloga Licenciada especializada en atención infantil,
+              adolescentes y familias con enfoque empático y basado en
+              evidencia.
             </p>
           </motion.div>
-
-            initial={false}
+          initial={false}
           <motion.div variants={itemVariants} className="space-y-4">
             <h4 className="font-semibold text-lg">Enlaces Rápidos</h4>
             <ul className="space-y-2 text-white/70 text-sm">
@@ -53,7 +61,10 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
+                <a
+                  href="#services"
+                  className="hover:text-white transition-colors"
+                >
                   Servicios
                 </a>
               </li>
@@ -66,13 +77,15 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-white transition-colors">
+                <a
+                  href="#contact"
+                  className="hover:text-white transition-colors"
+                >
                   Contacto
                 </a>
               </li>
             </ul>
           </motion.div>
-
           {/* Contact Info */}
           <motion.div variants={itemVariants} className="space-y-4">
             <h4 className="font-semibold text-lg">Contacto</h4>
@@ -139,7 +152,7 @@ const Footer = () => {
         </motion.div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

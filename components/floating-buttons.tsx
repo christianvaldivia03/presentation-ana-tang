@@ -1,20 +1,20 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { MessageCircle, MessageSquare, X } from 'lucide-react'
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { MessageCircle, MessageSquare, X } from "lucide-react";
 
 const FloatingButtons = () => {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsVisible(window.scrollY > 400)
-    }
+      setIsVisible(window.scrollY > 400);
+    };
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <motion.div
@@ -49,7 +49,7 @@ const FloatingButtons = () => {
         </div>
       </motion.a>
     </motion.div>
-  )
-}
+  );
+};
 
-export default FloatingButtons
+export default FloatingButtons;

@@ -1,15 +1,15 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { BookOpen, Zap, Target, Share2 } from 'lucide-react'
+import { motion } from "framer-motion";
+import { BookOpen, Zap, Target, Share2 } from "lucide-react";
 
 const About = () => {
   const stats = [
-    { icon: BookOpen, value: '+4 años', label: 'de experiencia' },
-    { icon: Target, value: 'Infantil', label: 'y adolescente' },
-    { icon: Zap, value: 'Conductual', label: 'Intervención' },
-    { icon: Share2, value: 'Psicoeducativos', label: 'Talleres' },
-  ]
+    { icon: BookOpen, value: "+4 años", label: "de experiencia" },
+    { icon: Target, value: "Infantil", label: "y adolescente" },
+    { icon: Zap, value: "Conductual", label: "Intervención" },
+    { icon: Share2, value: "Psicoeducativos", label: "Talleres" },
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -20,7 +20,7 @@ const About = () => {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -29,13 +29,10 @@ const About = () => {
       y: 0,
       transition: { duration: 0.8 },
     },
-  }
+  };
 
   return (
-    <section
-      id="about"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-white"
-    >
+    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-6xl mx-auto">
         <motion.div
           variants={containerVariants}
@@ -66,8 +63,11 @@ const About = () => {
             <p className="text-lg text-muted-foreground leading-relaxed text-center max-w-3xl mx-auto">
               <span className="font-semibold text-foreground">
                 Licenciada en Psicología por la Universidad Privada del Norte.
-              </span>{' '}
-              Profesional comprometida con el bienestar emocional, el desarrollo integral y la salud mental. Destaco por mi empatía, comunicación asertiva, liderazgo, pensamiento crítico y capacidad para acompañar procesos terapéuticos efectivos.
+              </span>{" "}
+              Profesional comprometida con el bienestar emocional, el desarrollo
+              integral y la salud mental. Destaco por mi empatía, comunicación
+              asertiva, liderazgo, pensamiento crítico y capacidad para
+              acompañar procesos terapéuticos efectivos.
             </p>
           </motion.div>
 
@@ -77,7 +77,7 @@ const About = () => {
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {stats.map((stat, index) => {
-              const Icon = stat.icon
+              const Icon = stat.icon;
               return (
                 <motion.div
                   key={index}
@@ -93,13 +93,13 @@ const About = () => {
                   </h3>
                   <p className="text-sm text-muted-foreground">{stat.label}</p>
                 </motion.div>
-              )
+              );
             })}
           </motion.div>
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;

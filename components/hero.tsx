@@ -1,16 +1,16 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Heart, Award, Users, BookOpen } from 'lucide-react'
-import { GenerateImage } from '@/components/generate-image'
+import { motion } from "framer-motion";
+import { Heart, Award, Users, BookOpen } from "lucide-react";
+import { GenerateImage } from "@/components/generate-image";
 
 const Hero = () => {
   const badges = [
-    { icon: BookOpen, text: 'Licenciada en Psicología' },
-    { icon: Award, text: 'UPN' },
-    { icon: Heart, text: 'Atención Personalizada' },
-    { icon: Users, text: 'Terapia Infantil' },
-  ]
+    { icon: BookOpen, text: "Licenciada en Psicología" },
+    { icon: Award, text: "UPN" },
+    { icon: Heart, text: "Atención Personalizada" },
+    { icon: Users, text: "Terapia Infantil" },
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -21,7 +21,7 @@ const Hero = () => {
         delayChildren: 0.3,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -30,7 +30,7 @@ const Hero = () => {
       y: 0,
       transition: { duration: 0.8 },
     },
-  }
+  };
 
   return (
     <section
@@ -53,10 +53,12 @@ const Hero = () => {
           <div className="space-y-6">
             <motion.div variants={itemVariants} className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-foreground leading-tight">
-                <span className="text-primary">Acompañamiento</span> psicológico profesional
+                <span className="text-primary">Acompañamiento</span> psicológico
+                profesional
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-                Atención psicológica especializada para niños, adolescentes y familias, con un enfoque humano, empático y basado en evidencia.
+                Atención psicológica especializada para niños, adolescentes y
+                familias, con un enfoque humano, empático y basado en evidencia.
               </p>
             </motion.div>
 
@@ -67,8 +69,8 @@ const Hero = () => {
             >
               <button
                 onClick={() => {
-                  const element = document.getElementById('contact')
-                  element?.scrollIntoView({ behavior: 'smooth' })
+                  const element = document.getElementById("contact");
+                  element?.scrollIntoView({ behavior: "smooth" });
                 }}
                 className="px-8 py-3 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-accent transition-colors text-center"
               >
@@ -85,9 +87,12 @@ const Hero = () => {
             </motion.div>
 
             {/* Trust Badges */}
-            <motion.div variants={itemVariants} className="grid grid-cols-2 gap-3 pt-8">
+            <motion.div
+              variants={itemVariants}
+              className="grid grid-cols-2 gap-3 pt-8"
+            >
               {badges.map((badge, index) => {
-                const Icon = badge.icon
+                const Icon = badge.icon;
                 return (
                   <motion.div
                     key={index}
@@ -99,7 +104,7 @@ const Hero = () => {
                       {badge.text}
                     </span>
                   </motion.div>
-                )
+                );
               })}
             </motion.div>
           </div>
@@ -126,7 +131,7 @@ const Hero = () => {
         </motion.div>
       </motion.div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

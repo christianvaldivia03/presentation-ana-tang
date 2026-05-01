@@ -1,35 +1,35 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Send, Phone } from 'lucide-react'
-import { useState } from 'react'
+import { motion } from "framer-motion";
+import { Send, Phone } from "lucide-react";
+import { useState } from "react";
 
 const FinalCTA = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  })
-  const [submitted, setSubmitted] = useState(false)
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // In production, this would send to an API endpoint
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
+    console.log("Form submitted:", formData);
+    setSubmitted(true);
     setTimeout(() => {
-      setFormData({ name: '', email: '', phone: '', message: '' })
-      setSubmitted(false)
-    }, 3000)
-  }
+      setFormData({ name: "", email: "", phone: "", message: "" });
+      setSubmitted(false);
+    }, 3000);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -40,7 +40,7 @@ const FinalCTA = () => {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -49,7 +49,7 @@ const FinalCTA = () => {
       y: 0,
       transition: { duration: 0.8 },
     },
-  }
+  };
 
   return (
     <section
@@ -76,7 +76,8 @@ const FinalCTA = () => {
               variants={itemVariants}
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
             >
-              Estoy aquí para acompañarte en tu camino hacia el bienestar mental y emocional. Contáctame hoy mismo.
+              Estoy aquí para acompañarte en tu camino hacia el bienestar mental
+              y emocional. Contáctame hoy mismo.
             </motion.p>
           </div>
 
@@ -86,10 +87,7 @@ const FinalCTA = () => {
             className="grid md:grid-cols-2 gap-12"
           >
             {/* Quick Contact */}
-            <motion.div
-              variants={itemVariants}
-              className="space-y-6"
-            >
+            <motion.div variants={itemVariants} className="space-y-6">
               <h3 className="text-2xl font-semibold text-foreground">
                 Contacto Rápido
               </h3>
@@ -214,14 +212,14 @@ const FinalCTA = () => {
                 type="submit"
                 className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-accent transition-colors"
               >
-                {submitted ? '✓ Mensaje enviado' : 'Enviar mensaje'}
+                {submitted ? "✓ Mensaje enviado" : "Enviar mensaje"}
               </button>
             </motion.form>
           </motion.div>
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default FinalCTA
+export default FinalCTA;

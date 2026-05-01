@@ -1,33 +1,33 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Phone } from 'lucide-react'
-import Link from 'next/link'
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Phone } from "lucide-react";
+import Link from "next/link";
 
 interface NavbarProps {
-  isScrolled: boolean
+  isScrolled: boolean;
 }
 
 const Navbar = ({ isScrolled }: NavbarProps) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
+    const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setIsOpen(false)
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
     }
-  }
+  };
 
   const navItems = [
-    { label: 'Inicio', id: 'hero' },
-    { label: 'Sobre mí', id: 'about' },
-    { label: 'Servicios', id: 'services' },
-    { label: 'Experiencia', id: 'experience' },
-    { label: 'Testimonios', id: 'testimonials' },
-    { label: 'Preguntas', id: 'faq' },
-  ]
+    { label: "Inicio", id: "hero" },
+    { label: "Sobre mí", id: "about" },
+    { label: "Servicios", id: "services" },
+    { label: "Experiencia", id: "experience" },
+    { label: "Testimonios", id: "testimonials" },
+    { label: "Preguntas", id: "faq" },
+  ];
 
   return (
     <motion.nav
@@ -35,9 +35,7 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
+        isScrolled ? "bg-white/90 backdrop-blur-md shadow-lg" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,7 +48,7 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
             className="flex-shrink-0"
           >
             <button
-              onClick={() => scrollToSection('hero')}
+              onClick={() => scrollToSection("hero")}
               className="text-lg font-semibold text-primary hover:text-accent transition-colors"
             >
               <span className="font-serif">Ana Tang</span>
@@ -99,7 +97,7 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
           {isOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
               className="md:hidden pb-4 space-y-2"
@@ -124,7 +122,7 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
         </AnimatePresence>
       </div>
     </motion.nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

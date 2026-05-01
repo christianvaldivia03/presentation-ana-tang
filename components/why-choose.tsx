@@ -1,31 +1,35 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Heart, Lightbulb, Award, Users } from 'lucide-react'
+import { motion } from "framer-motion";
+import { Heart, Lightbulb, Award, Users } from "lucide-react";
 
 const WhyChoose = () => {
   const reasons = [
     {
       icon: Heart,
-      title: 'Atención cálida y empática',
-      description: 'Cuidado genuino y comprensión profunda en cada sesión de acompañamiento.',
+      title: "Atención cálida y empática",
+      description:
+        "Cuidado genuino y comprensión profunda en cada sesión de acompañamiento.",
     },
     {
       icon: Lightbulb,
-      title: 'Estrategias basadas en evidencia',
-      description: 'Intervenciones respaldadas por la investigación científica más reciente.',
+      title: "Estrategias basadas en evidencia",
+      description:
+        "Intervenciones respaldadas por la investigación científica más reciente.",
     },
     {
       icon: Award,
-      title: 'Experiencia educativa y clínica',
-      description: 'Trayectoria sólida en diversos contextos: colegios, clínicas y centros especializados.',
+      title: "Experiencia educativa y clínica",
+      description:
+        "Trayectoria sólida en diversos contextos: colegios, clínicas y centros especializados.",
     },
     {
       icon: Users,
-      title: 'Seguimiento personalizado',
-      description: 'Adaptación de estrategias a las necesidades únicas de cada paciente y familia.',
+      title: "Seguimiento personalizado",
+      description:
+        "Adaptación de estrategias a las necesidades únicas de cada paciente y familia.",
     },
-  ]
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -36,7 +40,7 @@ const WhyChoose = () => {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -45,13 +49,10 @@ const WhyChoose = () => {
       y: 0,
       transition: { duration: 0.8 },
     },
-  }
+  };
 
   return (
-    <section
-      id="why-choose"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-white"
-    >
+    <section id="why-choose" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-6xl mx-auto">
         <motion.div
           variants={containerVariants}
@@ -80,7 +81,7 @@ const WhyChoose = () => {
             className="grid md:grid-cols-2 gap-8"
           >
             {reasons.map((reason, index) => {
-              const Icon = reason.icon
+              const Icon = reason.icon;
               return (
                 <motion.div
                   key={index}
@@ -102,13 +103,13 @@ const WhyChoose = () => {
                     </p>
                   </div>
                 </motion.div>
-              )
+              );
             })}
           </motion.div>
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default WhyChoose
+export default WhyChoose;

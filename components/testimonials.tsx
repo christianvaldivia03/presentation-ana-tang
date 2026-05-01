@@ -1,29 +1,29 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Star } from 'lucide-react'
+import { motion } from "framer-motion";
+import { Star } from "lucide-react";
 
 const Testimonials = () => {
   const testimonials = [
     {
-      text: 'Mi hijo mejoró notablemente su conducta y autoestima. La atención de la Lic. Ana fue muy profesional y cálida.',
-      author: 'María G.',
-      role: 'Madre',
+      text: "Mi hijo mejoró notablemente su conducta y autoestima. La atención de la Lic. Ana fue muy profesional y cálida.",
+      author: "María G.",
+      role: "Madre",
       rating: 5,
     },
     {
-      text: 'Recibimos orientación clara y humana como familia. Los talleres para padres fueron muy prácticos y útiles.',
-      author: 'Carlos L.',
-      role: 'Padre',
+      text: "Recibimos orientación clara y humana como familia. Los talleres para padres fueron muy prácticos y útiles.",
+      author: "Carlos L.",
+      role: "Padre",
       rating: 5,
     },
     {
-      text: 'Excelente profesional, transmite mucha confianza. Mi adolescente se sintió cómodo desde la primera sesión.',
-      author: 'Ana P.',
-      role: 'Madre',
+      text: "Excelente profesional, transmite mucha confianza. Mi adolescente se sintió cómodo desde la primera sesión.",
+      author: "Ana P.",
+      role: "Madre",
       rating: 5,
     },
-  ]
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -34,7 +34,7 @@ const Testimonials = () => {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -43,7 +43,7 @@ const Testimonials = () => {
       y: 0,
       transition: { duration: 0.8 },
     },
-  }
+  };
 
   return (
     <section
@@ -74,7 +74,8 @@ const Testimonials = () => {
               variants={itemVariants}
               className="text-muted-foreground text-lg max-w-2xl mx-auto"
             >
-              Lo que dicen mis pacientes y familias sobre el acompañamiento terapéutico
+              Lo que dicen mis pacientes y familias sobre el acompañamiento
+              terapéutico
             </motion.p>
           </div>
 
@@ -119,7 +120,7 @@ const Testimonials = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Testimonials
+export default Testimonials;
