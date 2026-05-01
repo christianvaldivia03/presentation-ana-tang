@@ -6,7 +6,7 @@ export function GenerateImage() {
   return (
     <div className="w-full h-full flex items-center justify-center">
       <Image
-        src="/hero-psychologist.jpg"
+        src="/hero-psychologist.jpeg"
         alt="Lic. Ana Alessandra Tang Bernilla - Psicóloga Licenciada"
         fill
         className="object-cover rounded-3xl"
